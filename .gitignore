@@ -1,0 +1,7 @@
+node_modules
+dist
+*.log
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json

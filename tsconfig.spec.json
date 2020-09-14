@@ -1,0 +1,8 @@
+{
+  "extends": "tsconfig.builders.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*.spec.ts"]
+}

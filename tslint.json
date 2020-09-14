@@ -1,0 +1,25 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+      "ordered-imports": [
+        true,
+        {
+          "import-sources-order": "lowercase-first",
+          "named-imports-order": "lowercase-first"
+        }
+      ],
+      "prettier": [
+        true,
+        {
+          "printWidth": 120,
+          "singleQuote": true
+        }
+      ]
+    },
+    "rulesDirectory": ["tslint-plugin-prettier"]
+}
