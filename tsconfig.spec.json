@@ -1,8 +1,8 @@
 {
-  "extends": "tsconfig.builders.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
     "types": ["node", "jest"]
   },
-  "include": ["src/**/*.spec.ts"]
+  "include": ["src/**/*.spec.ts","src/**/*.ts", "schematics/**/*.spec.ts", "schematics/**/*.ts"]
 }

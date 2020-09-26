@@ -2,6 +2,7 @@
   "files": [],
   "references": [
     { "path": "tsconfig.builders.json" },
+    { "path": "tsconfig.schematics.json"},
     { "path": "tsconfig.spec.json" },
   ]
 }

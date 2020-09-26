@@ -3,5 +3,6 @@
     "git.inputValidationLength": 1000,
     "editor.codeActionsOnSave": {
       "source.fixAll": true
-    }
+    },
+    "jest.pathToConfig": "jest.config.js"
 }

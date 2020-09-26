@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "ci": {
+      "type":"boolean",
+      "description": "CI mode (skip interactive prompts, don't open browser)",
+      "default": false
+    },
+    "configDir": {
+      "type":"string",
+      "description": "Directory where to load Storybook configurations from",
+      "default": ".storybook"
+    },
+    "host": {
+      "type": "string",
+      "description": "Host to run Storybook",
+      "default": "localhost"
+    },
+    "ssl-ca": {
+      "type": "string",
+      "description": "Provide an SSL certificate authority. (Optional, but required if using a self-signed certificate)"
+    },
+    "ssl-cert": {
+      "type": "string",
+      "description": "Provide an SSL certificate to use for https."
+    },
+    "ssl-key": {
+      "type": "string",
+      "description": "Provide an SSL key of the ssl-cert."
+    },
+    "port": {
+      "type": "number",
+      "description": "Port to run Storybook",
+      "default": 4400
+    },
+    "staticDirs": {
+      "type": "string",
+      "description": "Directory where to load static files from, comma-separated list"
+    },
+    "tsConfig": {
+      "type": "string",
+      "description": "Path to the tsconfig file to use",
+      "default": "tsconfig.storybook.json"
+    }
+  }
+}
