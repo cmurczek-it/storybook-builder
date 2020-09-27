@@ -13,7 +13,11 @@
     "save": "devDependencies"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.builders.json",
+    "build": "tsc -p tsconfig.builders.json && tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json dist/",
+    "copy:files": "cp --parents -p -r schematics/*/files/. dist",
+    "copy:collection": "cp schematics/collection.json dist/schematics/collection.json",
+    "postbuild": "$npm_execpath run copy:schemas && $npm_execpath run copy:files && $npm_execpath run copy:collection",
     "release": "semantic-release"
   },
   "dependencies": {
@@ -25,6 +29,7 @@
     "@angular-devkit/build-angular": "^0.1001.3",
     "@angular-devkit/core": "^10.1.3",
     "@angular-devkit/schematics": "^10.1.3",
+    "@angular/cli": "^10.1.3",
     "@angular/compiler": "^10.1.3",
     "@angular/compiler-cli": "^10.1.3",
     "@commitlint/cli": "^11.0.0",

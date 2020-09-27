@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "StorybookBuilderSchematics",
+  "title": "Storybook-Builder Schema",
+  "type": "object",
+  "properties": {
+    "project": {
+      "description": "The project to which to add storybook. Defaults to the default project of the workspace",
+      "type": "string"
+    }
+  }
+}
