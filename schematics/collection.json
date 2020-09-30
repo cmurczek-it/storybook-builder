@@ -4,6 +4,10 @@
     "ng-add": {
       "description": "Add stoybook builder to the project",
       "factory": "./ng-add/index#ngAdd"
+    },
+    "component": {
+      "description": "Creates a component with stories",
+      "factory": "./component/index#component"
     }
   }
 }

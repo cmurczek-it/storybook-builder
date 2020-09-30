@@ -11,10 +11,9 @@ export type StorybookBuilderOptions = json.JsonObject & {
   host: string;
   port: number;
   staticDirs?: string;
-  'ssl-ca'?: string;
-  'ssl-cert'?: string;
-  'ssl-key'?: string;
-  tsConfig: string;
+  sslCa?: string;
+  sslCert?: string;
+  sslKey?: string;
 };
 
 export type StorybookBuilderOutput = json.JsonObject &
@@ -49,15 +48,16 @@ function devServer(
       const options: StorybookDevServerOptions = {
         ...builderOptions,
         configDir: `${context.workspaceRoot}/${workspace.projects[projectName!].root}/${builderOptions.configDir}`,
-        tsConfig: `${context.workspaceRoot}/${workspace.projects[projectName!].root}/${builderOptions.tsConfig}`,
+        docsMode: false,
+        ignorePreview: false,
         ...ngOptions.default,
       };
-      if (builderOptions['ssl-cert'] || builderOptions['ssl-key']) {
+      if (builderOptions.sslCert || builderOptions.sslKey) {
         options.https = true;
       } else {
-        delete options['ssl-ca'];
-        delete options['ssl-cert'];
-        delete options['ssl-key'];
+        delete options.sslCa;
+        delete options.sslCert;
+        delete options.sslKey;
       }
       return options;
     }),

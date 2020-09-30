@@ -14,10 +14,12 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.builders.json && tsc -p tsconfig.schematics.json",
-    "copy:schemas": "cp --parents schematics/*/schema.json dist/",
+    "copy:builders": "cp src/builders.json dist/src",
+    "copy:schemas": "cp --parents schematics/*/schema.json dist/ && cp --parents src/*/schema.json dist/",
     "copy:files": "cp --parents -p -r schematics/*/files/. dist",
     "copy:collection": "cp schematics/collection.json dist/schematics/collection.json",
-    "postbuild": "$npm_execpath run copy:schemas && $npm_execpath run copy:files && $npm_execpath run copy:collection",
+    "copy:packageJson": "cp package.json dist/",
+    "postbuild": "$npm_execpath run copy:builders && $npm_execpath run copy:schemas && $npm_execpath run copy:files && $npm_execpath run copy:collection && $npm_execpath run copy:packageJson",
     "release": "semantic-release"
   },
   "dependencies": {

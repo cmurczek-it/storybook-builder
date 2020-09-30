@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "StorybookBuilderAddSchematics",
+  "title": "Storybook-Builder Add Schema",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}

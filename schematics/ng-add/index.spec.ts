@@ -37,7 +37,7 @@ describe('Storybook Builder', () => {
       });
 
       it('should should add and update configuration files', () => {
-        expect(actual.files).toContain('/projects/test-app/tsconfig.storybook.json');
+        expect(actual.files).toContain('/projects/test-app/.storybook/tsconfig.json');
         expect(actual.files).toContain('/projects/test-app/.storybook/main.js');
       });
 

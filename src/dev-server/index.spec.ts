@@ -31,13 +31,11 @@ describe('storybook-builder', () => {
 
     it('should start storybook using the defaults', async () => {
       const builderRun = await architect.scheduleTarget(appTarget, { ci: true });
-      const actual = await builderRun.result;
       expect(mockStorybookServer).toHaveBeenCalledWith({
         ci: true,
         configDir: `${architectHost.workspaceRoot}/projects/app/.storybook`,
         host: 'localhost',
         port: 4400,
-        tsConfig: `${architectHost.workspaceRoot}/projects/app/tsconfig.storybook.json`,
         ...(await import('@storybook/angular/dist/server/options')).default,
       });
       await builderRun.stop();

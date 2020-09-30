@@ -1,0 +1,19 @@
+import { moduleMetadata } from '@storybook/angular';
+import { <%= classify(componentName) %><%= classify(type) %> } from './<%= dasherize(componentName) %>.<%= camelize(type) %>.ts';
+
+export default {
+  component: <%= classify(componentName) %><%= classify(type) %>,
+  title: '',
+  decorators: [
+    moduleMetadata({
+      imports: [],
+      declarations: [],
+      providers: []
+
+    }),
+  ],
+};
+
+export const <%= classify(componentName) %> = () => ({
+  template: '',
+});

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "$id": "StorybookBuilderSchematics",
-  "title": "Storybook-Builder Schema",
+  "$id": "StorybookBuilderAddSchematics",
+  "title": "Storybook-Builder Add Schema",
   "type": "object",
   "properties": {
     "project": {

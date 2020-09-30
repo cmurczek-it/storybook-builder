@@ -17,15 +17,15 @@
       "description": "Host to run Storybook",
       "default": "localhost"
     },
-    "ssl-ca": {
+    "sslCa": {
       "type": "string",
       "description": "Provide an SSL certificate authority. (Optional, but required if using a self-signed certificate)"
     },
-    "ssl-cert": {
+    "sslCert": {
       "type": "string",
       "description": "Provide an SSL certificate to use for https."
     },
-    "ssl-key": {
+    "sslKey": {
       "type": "string",
       "description": "Provide an SSL key of the ssl-cert."
     },
@@ -37,11 +37,6 @@
     "staticDirs": {
       "type": "string",
       "description": "Directory where to load static files from, comma-separated list"
-    },
-    "tsConfig": {
-      "type": "string",
-      "description": "Path to the tsconfig file to use",
-      "default": "tsconfig.storybook.json"
     }
   }
 }
