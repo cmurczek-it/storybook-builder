@@ -1,6 +1,5 @@
 import { Architect } from '@angular-devkit/architect';
 import { TestingArchitectHost } from '@angular-devkit/architect/testing';
-import { buildDevStandalone } from '@storybook/core/dist/server/build-dev';
 import { StorybookBuilderOptions } from '.';
 import { createArchitect, host } from '../test-utils';
 
@@ -31,6 +30,7 @@ describe('storybook-builder', () => {
 
     it('should start storybook using the defaults', async () => {
       const builderRun = await architect.scheduleTarget(appTarget, { ci: true });
+      await builderRun.result;
       expect(mockStorybookServer).toHaveBeenCalledWith({
         ci: true,
         configDir: `${architectHost.workspaceRoot}/projects/app/.storybook`,

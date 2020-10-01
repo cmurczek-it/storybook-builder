@@ -48,8 +48,6 @@ function devServer(
       const options: StorybookDevServerOptions = {
         ...builderOptions,
         configDir: `${context.workspaceRoot}/${workspace.projects[projectName!].root}/${builderOptions.configDir}`,
-        docsMode: false,
-        ignorePreview: false,
         ...ngOptions.default,
       };
       if (builderOptions.sslCert || builderOptions.sslKey) {
