@@ -11,7 +11,10 @@ jobs:
   variables:
     YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
   steps:
-  - script: yarn --frozen-lockfile
+  - script: |
+      yarn --frozen-lockfile
+      ls -a node_modules/.bin
+      ls -a
 
 - job: test
   displayName: 'run unit tests'
