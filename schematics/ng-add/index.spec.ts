@@ -31,7 +31,7 @@ describe('Storybook Builder', () => {
         actual = await schematicsRunner.runSchematicAsync('ng-add', {}, tree).toPromise();
       });
 
-      it('should install the builder as devDependency', async () => {
+      it.skip('should install the builder as devDependency', async () => {
         const dependency = getPackageJsonDependency(actual, 'storybook-builder');
         expect(dependency?.type).toBe(NodeDependencyType.Dev);
       });

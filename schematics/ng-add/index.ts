@@ -5,6 +5,7 @@ import {
   chain,
   mergeWith,
   move,
+  noop,
   url,
   Rule,
   SchematicsException,
@@ -12,7 +13,6 @@ import {
   Tree,
 } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
-import { addPackageJsonDependency, NodeDependencyType } from '../utilities/dependencies';
 import { updateWorkspace } from '../utilities/workspace';
 
 export interface AddBuilderOptions {
@@ -21,9 +21,6 @@ export interface AddBuilderOptions {
 
 function addDepsToPackageJson(): Rule {
   return (tree: Tree, context: SchematicContext) => {
-    [{ type: NodeDependencyType.Dev, name: 'storybook-builder', version: '1.0.0' }].forEach((dependency) =>
-      addPackageJsonDependency(tree, dependency)
-    );
     context.addTask(new NodePackageInstallTask());
     return tree;
   };
