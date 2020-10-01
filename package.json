@@ -21,7 +21,8 @@
     "copy:collection": "cp schematics/collection.json dist/schematics/collection.json",
     "copy:packageJson": "cp package.json dist/",
     "postbuild": "$npm_execpath run copy:builders && $npm_execpath run copy:schemas && $npm_execpath run copy:files && $npm_execpath run copy:collection && $npm_execpath run copy:packageJson",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "test": "jest"
   },
   "dependencies": {
     "jsonc-parser": "^2.3.1",
