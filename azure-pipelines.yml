@@ -5,44 +5,31 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-jobs:
-- job: Install_Node
-  displayName: 'Install Node.js and dependencies'
-  variables:
-    YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
-  steps:
-  - task: Cache@2
-    displayName: Cache Yarn packages
-    inputs:
-      key: yarn | $(Agent.OS) | yarn.lock
-      path: $(YARN_CACHE_FOLDER)
-      restoreKeys: |
-        yarn | $(Agent.OS)
-        yarn
-      cacheHitVar: CACHE_RESTORED
-  - script: |
-      yarn --frozen-lockfile
-    condition: ne(variables.CACHE_RESTORED, 'true')
-
-- job: test
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
+steps:
+- task: Cache@2
+  displayName: Cache Yarn packages
+  inputs:
+    key: yarn | $(Agent.OS) | yarn.lock
+    path: $(YARN_CACHE_FOLDER)
+    restoreKeys: |
+      yarn | $(Agent.OS)
+      yarn
+    cacheHitVar: CACHE_RESTORED
+- script: |
+    yarn --frozen-lockfile
+  condition: ne(variables.CACHE_RESTORED, 'true')
+  displayName: 'install dependencies'
+- script: |
+    yarn test
   displayName: 'run unit tests'
-  dependsOn: Install_Node
-  steps:
-  - script: |
-      ls -a node_modules/.bin
-      yarn test
-
-- job: build
-  displayName: 'build package'
-  dependsOn: test
-  steps:
-  - script: yarn build
-
-- job: release
-  displayName: 'release package'
-  dependsOn: build
-  steps:
-    - script: yarn release
-      env:
-        GH_TOKEN: $(GH_TOKEN)
-        NPM_TOKEN: $(NPM_TOKEN)
+- script: |
+    yarn build
+  displayName: 'build'
+- script: |
+    yarn release
+  env:
+    GH_TOKEN: $(GH_TOKEN)
+    NPM_TOKEN: $(NPM_TOKEN)
+  displayName: 'create and release the package to github and npm'
