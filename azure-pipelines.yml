@@ -11,10 +11,18 @@ jobs:
   variables:
     YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
   steps:
+  - task: Cache@2
+    displayName: Cache Yarn packages
+    inputs:
+      key: yarn | $(Agent.OS) | yarn.lock
+      path: $(YARN_CACHE_FOLDER)
+      restoreKeys: |
+        yarn | $(Agent.OS)
+        yarn
+      cacheHitVar: CACHE_RESTORED
   - script: |
       yarn --frozen-lockfile
-      ls -a node_modules/.bin
-      ls -a
+    condition: ne(variables.CACHE_RESTORED, 'true')
 
 - job: test
   displayName: 'run unit tests'
