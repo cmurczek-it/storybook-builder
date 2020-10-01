@@ -25,16 +25,19 @@ jobs:
 
 - job: test
   displayName: 'run unit tests'
+  dependsOn: Install_Node
   steps:
   - script: yarn test
 
 - job: build
   displayName: 'build package'
+  dependsOn: test
   steps:
   - script: yarn build
 
 - job: release
   displayName: 'release package'
+  dependsOn: build
   steps:
     - script: yarn release
       env:
