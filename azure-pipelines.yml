@@ -28,7 +28,9 @@ jobs:
   displayName: 'run unit tests'
   dependsOn: Install_Node
   steps:
-  - script: yarn test
+  - script: |
+      ls -a node_modules/.bin
+      yarn test
 
 - job: build
   displayName: 'build package'
