@@ -19,7 +19,6 @@ steps:
     cacheHitVar: CACHE_RESTORED
 - script: |
     yarn --frozen-lockfile
-  condition: ne(variables.CACHE_RESTORED, 'true')
   displayName: 'install dependencies'
 - script: |
     yarn test
