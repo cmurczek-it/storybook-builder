@@ -19,8 +19,8 @@
     "copy:schemas": "cp --parents schematics/*/schema.json dist/ && cp --parents src/*/schema.json dist/",
     "copy:files": "cp --parents -pr schematics/*/files dist",
     "copy:collection": "cp schematics/collection.json dist/schematics/collection.json",
-    "copy:packageJson": "cp package.json dist/",
-    "postbuild": "$npm_execpath run copy:builders && $npm_execpath run copy:schemas && $npm_execpath run copy:files && $npm_execpath run copy:collection && $npm_execpath run copy:packageJson",
+    "copy:packageFiles": "cp package.json README.MD LICENSE.md dist/",
+    "postbuild": "$npm_execpath run copy:builders && $npm_execpath run copy:schemas && $npm_execpath run copy:files && $npm_execpath run copy:collection && $npm_execpath run copy:packageFiles",
     "release": "semantic-release",
     "test": "jest"
   },
@@ -79,15 +79,7 @@
           "pkgRoot": "dist"
         }
       ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "CHANGELOG.MD",
-            "RELEASENOTES.MD"
-          ]
-        }
-      ],
+      "@semantic-release/git",
       "@semantic-release/github"
     ]
   }
