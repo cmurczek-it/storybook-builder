@@ -5,7 +5,6 @@ import {
   chain,
   mergeWith,
   move,
-  noop,
   url,
   Rule,
   SchematicsException,
