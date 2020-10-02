@@ -8,8 +8,8 @@
   "repository": {
     "url": "git@github.com:cmurczek/storybook-builder.git"
   },
-  "builders": "src/builders.json",
-  "schematics": "schematics/collection.json",
+  "builders": "./src/builders.json",
+  "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "devDependencies"
   },
