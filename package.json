@@ -1,6 +1,6 @@
 {
   "name": "storybook-builder",
-  "version": "1.0.0",
+  "version": "1.0.0-sematically-released",
   "description": "A builder for running storybook the Angular way.",
   "author": "Christoph Murczek <christoph.murczek@iteratec.com>",
   "license": "MIT",
