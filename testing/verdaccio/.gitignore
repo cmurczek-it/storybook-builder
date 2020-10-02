@@ -1,0 +1,4 @@
+plugins
+storage
+conf/*
+!conf/config.yaml

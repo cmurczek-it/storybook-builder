@@ -1,0 +1,30 @@
+storage: /verdaccio/storage
+plugins: /verdaccio/plugins
+web:
+  title: Verdaccio
+auth:
+  htpasswd:
+    file: /verdaccio/conf/htpasswd
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+packages:
+  'storybook-builder':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+  '@*/*':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+middlewares:
+  audit:
+    enabled: true
+logs:
+  - {type: stdout, format: pretty, level: info}
